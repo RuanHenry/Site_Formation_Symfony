@@ -1,0 +1,11 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+#homepage : 
+#  path: /
+#  controller : App\Controller\HomeController::home
+
+#hello : 
+#  path: /hello/{prenom}/age/{age}; /hello
+#  controller : App\Controller\HomeController::hello
