@@ -12,6 +12,7 @@ use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -81,6 +82,7 @@ class AccounterController extends AbstractController
     /**
      * Modif de profil
      * @Route("/account/profile", name="account_profile")
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
     public function profile(Request $request) : Response {
@@ -109,7 +111,8 @@ class AccounterController extends AbstractController
 
     /**
      * Modif MDP
-     * @Route("/account/password-update", name="account_password")
+     * @Route("/account/password-update", name="account_password").
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
     public function updatePassword(Request $request, UserPasswordEncoderInterface $encoder) : Response {
@@ -152,11 +155,12 @@ class AccounterController extends AbstractController
     /**
      * Affiche le profil de l'user connecté
      * @Route("/account", name="account_index")
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
     public function myAccount() : Response {
         return $this->render('user/index.html.twig', [
             'user' => $this->getUser()
-        ]);
+        ]); 
     }
 }
