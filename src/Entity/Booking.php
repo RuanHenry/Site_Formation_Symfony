@@ -34,7 +34,7 @@ class Booking
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\GreaterThan("today")
+     * @Assert\GreaterThan("today", groups={"front"})
      */
     private $startDate;
 
@@ -105,6 +105,7 @@ class Booking
     /**
      * callback appelé à chaque fois qu'on créer une réservation
      * @ORM\PrePersist
+     * @ORM\PreUpdate
      *
      * @return void
      */
