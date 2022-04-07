@@ -8,15 +8,12 @@
          
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-        <link rel="stylesheet" href="/css/app.css">
-        <script src="/js/jquery.min.js"==></script>
-        <script src="/js/popper.min.js"==></script>
-        <script src="/js/bootstrap.min.js"==></script>
+        <link rel="stylesheet" href="{{ asset('build/css/app.css') }} ">
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
         {% block stylesheet %}{% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
     </head>
     <body>
         {% include "partials/header.html.twig" %}
